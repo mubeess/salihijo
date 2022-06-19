@@ -107,7 +107,7 @@ export default function AddStudent() {
         <div className='personal'>
         <TextField style={{width:'99%'}} onChange={changeValues} name='firstName' id="outlined-basic" label="First Name" variant="outlined" />
         <TextField style={{width:'99%'}} onChange={changeValues} name='lastName' id="outlined-basic" label="Last Name" variant="outlined" />
-        <TextField style={{width:'99%'}} onChange={changeValues} name='otherName' id="outlined-basic" label="Other Name" variant="outlined" />
+        <TextField disabled style={{width:'99%'}} onChange={changeValues} name='otherName' id="outlined-basic" label="Other Name" variant="outlined" />
         </div>
         <div className='personal'>
           
@@ -273,10 +273,8 @@ export default function AddStudent() {
           }}
         >
            <option value='none'>Select Category</option>
-          <option value='Playclass'>Playclass</option>
-          <option value='Daycare'>Daycare</option>
-           <option value='Kindergartens'>Kindergartens</option>
-          <option value='Grade'>Grade</option>
+          <option value='Nursery'>Nursery</option>
+          <option value='Primary'>Primary</option>
           <option value='JSS'>JSS</option>
           <option value='SSS'>SSS</option>
        

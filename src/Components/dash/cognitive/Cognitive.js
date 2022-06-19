@@ -255,9 +255,9 @@ const StyledTableCell = withStyles((theme) => ({
                   id: 'outlined-age-native-simple',
                 }}
               >
-                <option value='Kindergartens'>Kindergartens</option>
-                <option value='Playclass'>Playclass</option>
-                <option value='Grade'>Grade</option>
+                <option value='None'>None</option>
+                <option value='Nursery'>Nursery</option>
+                <option value='Primary'>Primary</option>
                 <option value='JSS'>JSS</option>
                 <option value='SSS'>SSS</option>
               </Select>

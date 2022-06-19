@@ -60,7 +60,7 @@ export default function StyledTable(props) {
                     max='15'
                     onChange={(e)=>{
                       const minimum=0
-                      const maximum=10
+                      const maximum=15
                       console.log(typeof(e.target.value))
                       if (e.target.value<minimum||e.target.value==isNaN) {
                        e.target.value=minimum
@@ -115,7 +115,7 @@ export default function StyledTable(props) {
                     max='15'
                     onChange={(e)=>{
                       const minimum=0
-                      const maximum=10
+                      const maximum=15
                       if (e.target.value<minimum) {
                        e.target.value=minimum
                       }else if (e.target.value>maximum) {

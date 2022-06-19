@@ -242,10 +242,8 @@ function Index(props) {
           }}
         >  
            <option value='none'>None</option>
-           <option value='Daycare'>Daycare</option>
-           <option value='Playclass'>Playclass</option>
-           <option value='Kindergartens'>Kindergartens</option>
-           <option value='Grade'>Grades</option>
+           <option value='Nursery'>Nursery</option>
+           <option value='Primary'>Primary</option>
           <option value='JSS'>JSS</option>
           <option value='SSS'>SSS</option>
         </Select>

@@ -65,8 +65,7 @@ export default function AssessmentControl() {
             <StyledTableCell align="right">NAME</StyledTableCell>
             <StyledTableCell align="right">CA1</StyledTableCell>
             <StyledTableCell align="right">CA2</StyledTableCell>
-            <StyledTableCell align="right">CA3</StyledTableCell>
-            <StyledTableCell align="right">CA4</StyledTableCell>
+            <StyledTableCell align="right">Assessment</StyledTableCell>
             <StyledTableCell align="right">EXAM</StyledTableCell>
           </TableRow>
         </TableHead>

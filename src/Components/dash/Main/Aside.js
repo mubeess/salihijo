@@ -294,28 +294,8 @@ margin-bottom: 10px;
         }
     
       
-    {
-      isAd||isTeacher||isFormMaster?(
-        <Link onClick={()=>{
-          fetch(`https://samsa-salihijo.herokuapp.com/admin/get-single-staff/?username=${appProps.user.user.username}`)
-          .then(res=>{
-            res.json()
-            .then(dat=>{
-              appProps.setUser({role:dat.message.role,user:dat.message})
-            })
-          })
-        }} to="/dash/assignment">
-        <ListItem  style={{borderBottom:'1px solid white'}} button>
-          <ListItemIcon>
-            <Assignment style={{color:'white'}} />
-          </ListItemIcon>
-          <ListItemText style={{color:'white'}} primary="Post Assignment"/>
-        </ListItem>
-        </Link>
-      ):null
-    }
-
-       
+    
+     
 
         {
        isAd?(

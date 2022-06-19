@@ -339,10 +339,8 @@ const StyledTableRow = withStyles((theme) => ({
                 }}
               >
                  <option value='None'>---None---</option>
-                 <option value='Daycare'>Daycare</option>
-                <option value='Kindergartens'>Kindergartens</option>
-                <option value='Playclass'>Playclass</option>
-                <option value='Grade'>Grade</option>
+                 <option value='Nursery'>Nursery</option>
+                <option value='Primary'>Primary</option>
                 <option value='JSS'>JSS</option>
                 <option value='SSS'>SSS</option>
               </Select>
@@ -408,28 +406,39 @@ const StyledTableRow = withStyles((theme) => ({
           <Button onClick={()=>{
             handleToggle()
             fetch(`https://samsa-salihijo.herokuapp.com/admin/get-a-class-result/?className=${classs}&&category=${category}&&term=${term}&&session=${session}`)
-              .then(res=>{
-                  res.json()
-                  .then(data=>{
-                  if (data.success) {
-                    appProps.setDosier(data.message)
-                    props.history.push('dosier')
-                    console.log(data)
-                    handleClose()
-                  }else{
-                    handleClose()
-                    alert('Error Occured While Fetching Students')
-                  }
+            .then((res) => { return res.blob();})
+            .then((data) => {
+              console.log(data)
+              handleClose()
+              var a = document.createElement("a");
+              a.href = window.URL.createObjectURL(data);
+              a.download = "STUDENT_RESULT";
+              a.click();
+            });
+            
+            
+            // .then(res=>{
+              //     res.json()
+              //     .then(data=>{
+              //     if (data.success) {
+              //       appProps.setDosier(data.message)
+              //       props.history.push('dosier')
+              //       console.log(data)
+              //       handleClose()
+              //     }else{
+              //       handleClose()
+              //       alert('Error Occured While Fetching Students')
+              //     }
                                    
-                  }).catch(err=>{
-                    handleClose()
-                    alert('Error Occured While Fetching Students')
-                  })
-                })
-                .catch(err=>{
-                  handleClose()
-                  alert('Error Occured While Fetching Students')
-                })
+              //     }).catch(err=>{
+              //       handleClose()
+              //       alert('Error Occured While Fetching Students')
+              //     })
+              //   })
+                // .catch(err=>{
+                //   handleClose()
+                //   alert('Error Occured While Fetching Students')
+                // })
            }} style={{marginLeft:'70%',marginTop:'10px'}}  variant="contained" color='primary'>View Students</Button>
           </div>
           
@@ -441,57 +450,32 @@ const StyledTableRow = withStyles((theme) => ({
 
  <Divider style={{width:'80%',marginTop:'20px',marginLeft:'20px'}}></Divider>
 
-<Typography style={{
+{/* <Typography style={{
       color:'black',
       width: '80%'
-    }} variant='h6' align='center' gutterBottom>Student's List</Typography>
+    }} variant='h6' align='center' gutterBottom>Student's List</Typography> */}
 <Divider style={{width:'80%',marginLeft:'20px',marginTop:'10px'}}></Divider>
 
 
 
 <StyledView>
     
-        <Typography style={{marginLeft:'10px'}} variant="button" display="block" gutterBottom>
+        {/* <Typography style={{marginLeft:'10px'}} variant="button" display="block" gutterBottom>
        {classs} || {category}
-      </Typography>
+      </Typography> */}
           <Divider></Divider>
       <TableContainer  style={{marginTop:'20px'}} component={Paper}>
       <Table className={classes.table} aria-label="customized table">
-        <TableHead >
+        {/* <TableHead >
           <TableRow style={{backgroundColor:gray[500]}} >
             <StyledTableCell>S/N</StyledTableCell>
             <StyledTableCell  align="center">STUDENT ID</StyledTableCell>
             <StyledTableCell align="center">NAME</StyledTableCell>
-            {/* <StyledTableCell  align="center">POSITION</StyledTableCell> */}
             <StyledTableCell  align="center">Actions</StyledTableCell>
           </TableRow>
-        </TableHead>
-        <TableBody>
-         {
-           appProps.dosier.length>=1&&(
-            appProps.dosier.map((student,ind)=>(
-              <StyledTableRow key={ind}>
-                     <StyledTableCell component="th" scope="row">
-                         {ind+1}
-                     </StyledTableCell>
-                          <StyledTableCell align="right">{student[0].username}</StyledTableCell>
-                          <StyledTableCell align="right">{`${student[2][0].firstName+' '+student[2][0].lastName}`}</StyledTableCell>
-                          {/* <StyledTableCell align="right">{student[0].position}</StyledTableCell> */}
-                          <StyledTableCell align="right">
-                            <Button onClick={()=>{
-                          console.log('clicked')
-                             
-                            }} style={{backgroundColor:'green',color:'white'}} variant='contained'>Print Result</Button>
-                          </StyledTableCell>
-                </StyledTableRow>
-              ))
-
-           )
-           
-         }
-       
-          
-        </TableBody>
+        </TableHead> */}
+      
+      
       </Table>
     </TableContainer>
   

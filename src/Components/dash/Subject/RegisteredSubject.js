@@ -156,8 +156,8 @@ export default function RegisterdSubject(){
                 </StyledTableCell>
                 <StyledTableCell align="right">{row.subject}</StyledTableCell>
                 <StyledTableCell align="right">
-                 <ViewArrayRounded style={{color:'#F39C77',marginRight:'10px',cursor:'pointer'}}></ViewArrayRounded>
-                 <EditRounded style={{color:'green',marginRight:'10px',cursor:'pointer'}}></EditRounded>
+                 {/* <ViewArrayRounded style={{color:'#F39C77',marginRight:'10px',cursor:'pointer'}}></ViewArrayRounded>
+                 <EditRounded style={{color:'green',marginRight:'10px',cursor:'pointer'}}></EditRounded> */}
                  <DeleteForeverRounded onClick={()=>{
                    const isConfirmed=window.confirm('Are you sure?')
                    if(isConfirmed==true){

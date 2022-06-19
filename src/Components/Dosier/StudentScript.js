@@ -58,10 +58,9 @@ export default function StudentScript() {
                     <th>S/N</th>
                     <th>STUDENT ID</th>
                     <th>NAMES </th>
-                    <th>1ST CA<br></br>(10)</th>
-                    <th>2ND CA<br></br>(10)</th>
-                    <th>3RD CA<br></br>(10)</th>
-                    <th>4TH CA<br></br>(10)</th>
+                    <th>1ST CA<br></br>(15)</th>
+                    <th>2ND CA<br></br>(15)</th>
+                    <th>Assessment<br></br>(10)</th>
                     <th>EXAM<br></br>(60)</th>
                    
                 </thead>
@@ -74,8 +73,7 @@ export default function StudentScript() {
                         <td className="subject">{`${res.firstName+" "+res.lastName}`}</td>
                         <td>{res.ca1}</td>
                         <td>{res.ca2}</td>
-                        <td>{res.ca3}</td>
-                        <td>{res.ca4}</td>
+                        <td>{res.assessment}</td>
                         <td>{res.exam}</td>
                     </tr>
                       ))
