@@ -64,7 +64,7 @@ const theme = createMuiTheme({
              }} variant="button" align='center' gutterBottom>SALIHIJO AHMED MEMORIAL</Typography>
                <Typography style={{
                color:'black'
-             }} variant="button" align='center' gutterBottom>ACADEMY</Typography>
+             }} variant="button" align='center' gutterBottom>SCIENCE ACADEMY</Typography>
         </div>
         <Typography style={{
                color:'black',

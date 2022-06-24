@@ -73,8 +73,9 @@ export default function StyledTable(props) {
                     style={{border:`2px solid ${ca1}`}}
                     onBlur={
                       (e)=>{
-                        
-                        
+                        if (e.target.value=='') {
+                          return
+                        }
                         const myObj={
                           key:'ca1',
                           id:props.row._id,
@@ -100,7 +101,7 @@ export default function StyledTable(props) {
                         })
                        
                       })
-                      console.log(myObj)
+                     
                       }
                       
                     }
@@ -127,6 +128,9 @@ export default function StyledTable(props) {
                         style={{border:`2px solid ${ca2}`}}
                      onBlur={
                       (e)=>{
+                        if (e.target.value=='') {
+                          return
+                        }
                 const myObj={
                   key:'ca2',
                   id:props.row._id,
@@ -164,6 +168,9 @@ export default function StyledTable(props) {
                     min='0'
                     max='10'
                     onChange={(e)=>{
+                      if (e.target.value=='') {
+                        return
+                      }
                       const minimum=0
                       const maximum=10
                       if (e.target.value<minimum) {
@@ -174,7 +181,7 @@ export default function StyledTable(props) {
                       }
                     }}
 
-                     disabled={JSON.parse(localStorage.getItem('user')).role.includes('Admin')?false:!JSON.parse(localStorage.getItem('user')).user.assessment}
+                     disabled={JSON.parse(localStorage.getItem('user')).role.includes('Admin')?false:!JSON.parse(localStorage.getItem('user')).user.assessmentButton}
                      style={{border:`2px solid ${ca3}`}}
                      onBlur={
                       (e)=>{
@@ -215,6 +222,9 @@ export default function StyledTable(props) {
                      min='0'
                      max='60'
                      onChange={(e)=>{
+                      if (e.target.value=='') {
+                        return
+                      }
                        const minimum=0
                        const maximum=60
                        if (e.target.value<minimum) {

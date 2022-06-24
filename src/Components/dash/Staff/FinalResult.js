@@ -157,7 +157,7 @@ const useStyles = makeStyles({
             <StyledTableCell style={{width:'30%'}}  align="center">NAME</StyledTableCell>
             <StyledTableCell align="center">1ST CA</StyledTableCell>
             <StyledTableCell align="center">2ND CA</StyledTableCell>
-            <StyledTableCell align="center">assessment</StyledTableCell>
+            <StyledTableCell align="center">Assignment</StyledTableCell>
             <StyledTableCell align="center">EXAMS</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -204,7 +204,7 @@ const useStyles = makeStyles({
                 if (appProps.user.user.ca2Button) {
                   buttonToPush='ca2Button'
                 } else 
-                if (appProps.user.user.ca3Button) {
+                if (appProps.user.user.assessmentButton) {
                   buttonToPush='assessmentButton'
                 }  else 
                 if (appProps.user.user.ca4Button) {

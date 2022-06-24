@@ -371,15 +371,15 @@ const StyledTableCell = withStyles((theme) => ({
             <StyledTableCell>S/N</StyledTableCell>
             <StyledTableCell align="center">STUDENT ID</StyledTableCell>
             <StyledTableCell align="center">NAME</StyledTableCell>
-            <StyledTableCell align="center">Attentiveness</StyledTableCell>
+            {/* <StyledTableCell align="center">Attentiveness</StyledTableCell>
             <StyledTableCell align="center">Emotional</StyledTableCell>
-            <StyledTableCell align="center">Neatness</StyledTableCell>
+            <StyledTableCell align="center">Neatness</StyledTableCell> */}
             {/* <StyledTableCell align="center">Acceptance</StyledTableCell> */}
-            <StyledTableCell align="center">Team Work</StyledTableCell>
+            {/* <StyledTableCell align="center">Team Work</StyledTableCell> */}
             {/* <StyledTableCell align="center">Preseverance</StyledTableCell> */}
-            <StyledTableCell align="center">Speaking</StyledTableCell>
+            {/* <StyledTableCell align="center">Speaking</StyledTableCell> */}
             {/* <StyledTableCell align="center">Leadership</StyledTableCell> */}
-            <StyledTableCell align="center">Honesty</StyledTableCell>
+            {/* <StyledTableCell align="center">Honesty</StyledTableCell>
             <StyledTableCell align="center">Punctuality</StyledTableCell>
             <StyledTableCell align="center">Attitude</StyledTableCell>
             <StyledTableCell align="center">Initiative</StyledTableCell>
@@ -387,7 +387,7 @@ const StyledTableCell = withStyles((theme) => ({
             <StyledTableCell align="center">Preseverance</StyledTableCell>
             <StyledTableCell align="center">Leadership</StyledTableCell> 
             <StyledTableCell align="center">Follows</StyledTableCell>
-             <StyledTableCell align="center">Participation</StyledTableCell>
+             <StyledTableCell align="center">Participation</StyledTableCell> */}
           
             <StyledTableCell style={{width:'10%'}} align="center">Remarks</StyledTableCell>
           </TableRow>

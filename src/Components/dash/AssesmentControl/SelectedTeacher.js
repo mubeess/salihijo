@@ -39,7 +39,7 @@ export default function StyledTable(props) {
     const [ca1,setCa1]=useState(props.teach.ca1Button)
     
     const [ca2,setCa2]=useState(props.teach.ca2Button)
-    const [ca3,setCa3]=useState(props.teach.ca3Button)
+    const [ca3,setCa3]=useState(props.teach.assessmentButton)
     const [ca4,setCa4]=useState(props.teach.ca4Button)
     const [exam,setExam]=useState(props.teach.examButton)
     const appProps=useContext(AppContext)
@@ -156,6 +156,7 @@ export default function StyledTable(props) {
                              console.log(data)
                          })
                      })
+                    
                 }}
               checked={ca3}
              name="checkedA"
