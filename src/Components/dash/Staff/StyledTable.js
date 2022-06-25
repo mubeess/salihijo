@@ -59,9 +59,13 @@ export default function StyledTable(props) {
                     min='0'
                     max='15'
                     onChange={(e)=>{
+                      if (e.target.value=='') {
+                        return
+                      }
                       const minimum=0
                       const maximum=15
                       console.log(typeof(e.target.value))
+
                       if (e.target.value<minimum||e.target.value==isNaN) {
                        e.target.value=minimum
                       }else if (e.target.value>maximum) {
@@ -115,6 +119,9 @@ export default function StyledTable(props) {
                     min='0'
                     max='15'
                     onChange={(e)=>{
+                      if (e.target.value=='') {
+                        return
+                      }
                       const minimum=0
                       const maximum=15
                       if (e.target.value<minimum) {
@@ -185,6 +192,9 @@ export default function StyledTable(props) {
                      style={{border:`2px solid ${ca3}`}}
                      onBlur={
                       (e)=>{
+                        if (e.target.value=='') {
+                          return
+                        }
                 const myObj={
                   key:'assessment',
                   id:props.row._id,
@@ -238,6 +248,9 @@ export default function StyledTable(props) {
                       style={{border:`2px solid ${exam}`}}
                       onBlur={
                        (e)=>{
+                        if (e.target.value=='') {
+                          return
+                        }
                  const myObj={
                    key:'exam',
                    id:props.row._id,
