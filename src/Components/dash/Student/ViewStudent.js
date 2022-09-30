@@ -193,10 +193,10 @@ useEffect(()=>{
                 <StyledTableCell align="right">{row.currentClass}</StyledTableCell>
                 <StyledTableCell align="right">{row.gender}</StyledTableCell>
                 <StyledTableCell align="right">
-                <ViewArrayRounded onClick={()=>{
+                {/* <ViewArrayRounded onClick={()=>{
                   setStudentSelected([row])
                   handleToggle()
-                }} style={{color:'#F39C77',marginRight:'10px',cursor:'pointer'}}></ViewArrayRounded>
+                }} style={{color:'#F39C77',marginRight:'10px',cursor:'pointer'}}></ViewArrayRounded> */}
                  <EditRounded onClick={()=>{
                       appProps.setEdit({user:row})
                       props.history.push('editstudent')

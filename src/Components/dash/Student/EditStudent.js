@@ -14,8 +14,9 @@ import NaijaState from 'naija-state-local-government'
 import AppContext from '../../../Context/app/appContext'
 
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { notification } from 'antd';
+import { message, notification, Upload } from 'antd';
 import Backdrop from '@material-ui/core/Backdrop';
+import { CloudUploadOutlined } from '@material-ui/icons';
 const StyledAdd= styled.div`
 margin-left:22%;
 margin-top: 20px;
@@ -93,7 +94,7 @@ useEffect(()=>{
     const [kinNumber,setKinNumber]=useState(appProps.editValue.user.kinNumber)
     const [kinAddress,setKinAddress]=useState(appProps.editValue.user.kinAddress)
     const [kinRelation,setKinRelation]=useState(appProps.editValue.user.kinRelation)
-
+    const [currPass,setCurrentPassport]=useState(null)
 
 
 
@@ -142,12 +143,44 @@ useEffect(()=>{
         <TextField value={lastName} style={{width:'99%'}}onChange={(e)=>{
             setLasttName(e.target.value)
         }} name='lastName' id="outlined-basic" label="Last Name" variant="outlined" />
-        <TextField value={otherName} style={{width:'99%'}} onChange={(e)=>{
-            setOtherName(e.target.value)
-        }} name='otherName' id="outlined-basic" label="Other Name" variant="outlined" />
+       
+    
+    
+    <div className='passport'>
+        <Upload 
+      action={`https://samsa-salihijo.herokuapp.com/admin/student-profile-pic/?id=${appProps.editValue.user._id}`}
+      name='file'
+      method='POST'
+     
+      onChange={(info)=>{
+        if (info.file.status !== 'uploading') {
+          console.log('rrr');
+        }
+        if (info.file.status === 'done') {
+          console.log(info.file)
+          setCurrentPassport(info.file.response.data.image.url)
+          message.success(`student passport updated`);
+          
+        } else if (info.file.status === 'error') {
+          message.error(`${info.file.name} file upload failed.`);
+        }
+      }}
+   
+    >
+    <Button style={{
+      width:200,
+      height:40,
+      backgroundColor:'lightgrey'
+    }} icon={<CloudUploadOutlined/>}>Edit Passport</Button>
+  </Upload>
+ 
+<img src={currPass==null?appProps.editValue.user.image.url:currPass} alt='NO PASSPORT'/>
+
+  </div>
+
+
         </div>
         <div className='personal'>
-          
           <TextField id="date"
           value={dob}
           name='dob'

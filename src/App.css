@@ -35,3 +35,16 @@ body{
   size: auto;
   margin: 20mm;
 } */
+
+.passport{
+  min-height: 50px;
+  border: 1px dashed black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.passport img{
+  height: 100px;
+  width: 100px;
+  border-radius: 0px;
+}

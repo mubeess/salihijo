@@ -11,10 +11,11 @@ import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button'
 import NativeSelect from '@material-ui/core/NativeSelect';
 import NaijaState from 'naija-state-local-government'
-
+import { UploadOutlined,CloudUploadOutlined } from '@ant-design/icons';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { notification } from 'antd';
+import { message, notification, Upload } from 'antd';
 import Backdrop from '@material-ui/core/Backdrop';
+
 const StyledAdd= styled.div`
 width: 100%;
 min-height: 60vh;
@@ -44,6 +45,26 @@ const useStyles = makeStyles((theme) => ({
       color: '#fff',
   }
   }));
+
+  const propsss = {
+    name: 'file',
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    headers: {
+      authorization: 'authorization-text',
+    },
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
+  };
+
+
 export default function AddStudent() {
 
   const [open, setOpen] = React.useState(false);
@@ -74,6 +95,7 @@ export default function AddStudent() {
     const [section,setSection]=useState('none')
     const [classs,setClass]=useState('none')
     const [category,setCtegory]=useState('none')
+    const [passport,setPassport]=useState(null)
     const [students,setStudets]=useState({
       firstName:'',
       lastName:'',
@@ -107,7 +129,38 @@ export default function AddStudent() {
         <div className='personal'>
         <TextField style={{width:'99%'}} onChange={changeValues} name='firstName' id="outlined-basic" label="First Name" variant="outlined" />
         <TextField style={{width:'99%'}} onChange={changeValues} name='lastName' id="outlined-basic" label="Last Name" variant="outlined" />
-        <TextField disabled style={{width:'99%'}} onChange={changeValues} name='otherName' id="outlined-basic" label="Other Name" variant="outlined" />
+        
+
+<div className='passport'>
+        <Upload 
+      beforeUpload={(file)=>{
+        setPassport(file)
+        console.log(file,"+++++")
+        return false
+      
+    }}
+  
+   
+    >
+    <Button style={{
+      width:200,
+      height:40,
+      backgroundColor:'lightgrey'
+    }} icon={<CloudUploadOutlined/>}>Upload Passport</Button>
+  </Upload>
+ 
+
+
+  </div>
+
+
+
+
+
+
+
+
+
         </div>
         <div className='personal'>
           
@@ -354,6 +407,7 @@ export default function AddStudent() {
         </div>
         <Button onClick={()=>{
           handleToggle()
+
           const selectedStudent={
             state:currentState,
             lga:currentLga,
@@ -373,13 +427,17 @@ export default function AddStudent() {
             kinNumber:students.kinNumber,
             country:'Nigeria'
           }
-          console.log(selectedStudent)
+          const formData = new FormData();
+          formData.append('file', passport);
+          const newStudent=Object.keys(selectedStudent).map((key) => [key, selectedStudent[key]])
+          newStudent.map(std=>{
+            formData.append(std[0],std[1])
+          })
+        
+         
           fetch('https://samsa-salihijo.herokuapp.com/admin/register-student',{
             method:'POST',
-            headers:{
-              "Content-Type":'application/json'
-            },
-            body:JSON.stringify(selectedStudent)
+            body:formData
           }).then(res=>{
             res.json()
             .then(data=>{
