@@ -408,7 +408,6 @@ const StyledTableRow = withStyles((theme) => ({
             fetch(`https://samsa-salihijo.herokuapp.com/admin/get-a-class-result/?className=${classs}&&category=${category}&&term=${term}&&session=${session}`)
             .then((res) => { return res.blob();})
             .then((data) => {
-              console.log(data)
               handleClose()
               var a = document.createElement("a");
               a.href = window.URL.createObjectURL(data);
